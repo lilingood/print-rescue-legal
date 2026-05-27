@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Print Rescue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f0e0c;
+      --ink-soft: #3a3833;
+      --ink-light: #7a7772;
+      --paper: #faf9f7;
+      --paper-warm: #f3f1ed;
+      --rule: #e2ddd8;
+      --accent: #1a56db;
+      --accent-warm: #c84b0f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 56px 40px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,0.03) 39px,
+        rgba(255,255,255,0.03) 40px
+      );
+      pointer-events: none;
+    }
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+    .app-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: rgba(255,255,255,0.4);
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--paper);
+      margin-bottom: 16px;
+    }
+    h1 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+    }
+    .meta {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      background: var(--paper-warm);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul {
+      max-width: 720px;
+      margin: 0 auto;
+      list-style: none;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    nav ul::-webkit-scrollbar { display: none; }
+    nav a {
+      display: block;
+      padding: 14px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* ── Main content ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 40px 80px;
+    }
+
+    .section {
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 56px;
+    }
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    p {
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 16px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+    li { margin-bottom: 8px; }
+    li:last-child { margin-bottom: 0; }
+
+    .callout {
+      background: var(--paper-warm);
+      border-left: 3px solid var(--ink);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+    }
+    .callout p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .highlight-box {
+      background: #f0f4ff;
+      border: 1px solid #c7d7f9;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .highlight-box strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+    th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--paper-warm);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      border-bottom: 2px solid var(--rule);
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink-soft);
+      font-weight: 300;
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .tag-no { background: #dcfce7; color: #166534; }
+    .tag-yes { background: #fef9c3; color: #854d0e; }
+    .tag-local { background: #e0f2fe; color: #075985; }
+
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--paper-warm);
+      border-top: 1px solid var(--rule);
+      padding: 40px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 20px;
+    }
+    .footer-nav a {
+      font-size: 13px;
+      color: var(--ink-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-nav a:hover { color: var(--ink); }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--ink-light);
+      font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 40px 24px 36px; }
+      main { padding: 48px 24px 64px; }
+      nav { padding: 0 24px; }
+      footer { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="app-badge">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+      Print Rescue · iOS App
+    </div>
+    <h1>Privacy <em>Policy</em></h1>
+    <p class="meta">Effective Date: June 1, 2025 &nbsp;·&nbsp; Last Updated: June 1, 2025</p>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#data">Data We Collect</a></li>
+    <li><a href="#camera">Camera</a></li>
+    <li><a href="#subscriptions">Subscriptions</a></li>
+    <li><a href="#storage">Storage</a></li>
+    <li><a href="#children">Children</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- Overview -->
+  <section class="section" id="overview">
+    <div class="section-num">01 — Overview</div>
+    <h2>Your privacy is our default</h2>
+    <div class="callout">
+      <p><strong>Short version:</strong> Print Rescue does not collect, store, or share your personal data. Everything happens on your device. We have no servers that receive your documents, photos, or printer information.</p>
+    </div>
+    <p>This Privacy Policy explains what information Print Rescue ("the App", "we", "our") handles when you use the application on your iPhone or iPad. We are committed to minimal data practices consistent with Apple's App Store guidelines and global privacy standards.</p>
+    <p>By using Print Rescue, you agree to the practices described in this Policy.</p>
+  </section>
+
+  <!-- Data We Collect -->
+  <section class="section" id="data">
+    <div class="section-num">02 — What We Collect</div>
+    <h2>Data collection at a glance</h2>
+    <p>The table below summarizes every category of data the App interacts with:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Data Category</th>
+          <th>Collected?</th>
+          <th>Where It Stays</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Documents you print (PDF, DOCX, images)</td>
+          <td><span class="tag tag-no">Never</span></td>
+          <td>Your device only</td>
+          <td>Rendered locally for printing</td>
+        </tr>
+        <tr>
+          <td>Camera photos for calibration</td>
+          <td><span class="tag tag-no">Never stored</span></td>
+          <td>Processed in memory</td>
+          <td>Automatic white-band detection</td>
+        </tr>
+        <tr>
+          <td>Printer calibration settings</td>
+          <td><span class="tag tag-local">Local only</span></td>
+          <td>Device storage</td>
+          <td>Save your configuration</td>
+        </tr>
+        <tr>
+          <td>Subscription status</td>
+          <td><span class="tag tag-yes">Via Apple</span></td>
+          <td>Apple servers</td>
+          <td>Unlock premium features</td>
+        </tr>
+        <tr>
+          <td>Name, email, or contact details</td>
+          <td><span class="tag tag-no">Never</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Location data</td>
+          <td><span class="tag tag-no">Never</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Usage analytics or crash reports</td>
+          <td><span class="tag tag-no">Never</span></td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>We integrate <strong>no third-party analytics, advertising SDKs, or tracking libraries</strong> of any kind.</p>
+  </section>
+
+  <!-- Camera -->
+  <section class="section" id="camera">
+    <div class="section-num">03 — Camera Access</div>
+    <h2>Camera — used for calibration only</h2>
+    <p>Print Rescue may request access to your device camera for the <strong>Automatic Calibration</strong> feature. When you photograph a printed test page, the App uses Apple's Vision framework to detect white-band positions and calculate compensation offsets.</p>
+    <ul>
+      <li>Camera images are processed entirely on-device using the Vision framework.</li>
+      <li>No photo is saved to your Camera Roll unless you explicitly choose to save it.</li>
+      <li>No image data is transmitted off your device under any circumstances.</li>
+      <li>You may use the manual tap-calibration mode instead; camera access is never required.</li>
+    </ul>
+    <p>You can revoke camera permission at any time in <strong>Settings → Privacy & Security → Camera</strong>.</p>
+  </section>
+
+  <!-- Subscriptions -->
+  <section class="section" id="subscriptions">
+    <div class="section-num">04 — In-App Purchases &amp; Subscriptions</div>
+    <h2>Payments are handled entirely by Apple</h2>
+    <p>Print Rescue offers optional premium access via monthly, annual, and lifetime plans. All payment processing is managed exclusively by Apple through StoreKit 2.</p>
+    <div class="highlight-box">
+      <p><strong>We never see your payment card details.</strong> Apple processes and encrypts all financial transactions. Your purchase history is governed by Apple's <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+    </div>
+    <p>Print Rescue only receives a confirmation token from Apple indicating whether a valid purchase or active subscription exists — nothing more. No financial data reaches our systems.</p>
+    <p>To manage or cancel subscriptions, go to <strong>Settings → [Your Name] → Subscriptions</strong> on your device.</p>
+  </section>
+
+  <!-- Local Storage -->
+  <section class="section" id="storage">
+    <div class="section-num">05 — Local Data Storage</div>
+    <h2>What stays on your device</h2>
+    <p>The App saves the following data locally in your device's sandboxed storage to preserve your settings between sessions:</p>
+    <ul>
+      <li><strong>Calibration profiles</strong> — nozzle group markings, white-band count, anchor coordinates (in mm), and strip height.</li>
+      <li><strong>Printer configuration</strong> — selected printer model preferences.</li>
+      <li><strong>App preferences</strong> — language and display settings.</li>
+    </ul>
+    <p>This data never leaves your device. Deleting the App permanently removes all locally stored data.</p>
+    <p>Print Rescue does not use iCloud sync for calibration data. Your profiles are personal to the device they were created on.</p>
+  </section>
+
+  <!-- Third Parties -->
+  <section class="section" id="third-parties">
+    <div class="section-num">06 — Third Parties</div>
+    <h2>We share nothing with third parties</h2>
+    <p>Print Rescue does not sell, rent, license, or share any user data with third parties for advertising, analytics, data brokerage, or any other purpose.</p>
+    <p>The App contains no embedded SDKs from social media platforms, ad networks, or tracking providers.</p>
+    <p>The App communicates with two external endpoints only:</p>
+    <ul>
+      <li><strong>Your AirPrint printer</strong> — on your local Wi-Fi network, to send print jobs.</li>
+      <li><strong>Apple's StoreKit servers</strong> — to verify subscription status.</li>
+    </ul>
+    <p>Both communications are initiated solely at your request and carry no personal data about you.</p>
+  </section>
+
+  <!-- Children -->
+  <section class="section" id="children">
+    <div class="section-num">07 — Children's Privacy</div>
+    <h2>Not directed at children</h2>
+    <p>Print Rescue is a productivity utility designed for general audiences. It is not directed at children under 13 years of age, and we do not knowingly collect any personal information from children. If you believe a child under 13 has provided data through the App, please contact us and we will take appropriate action.</p>
+  </section>
+
+  <!-- Security -->
+  <section class="section" id="security">
+    <div class="section-num">08 — Security</div>
+    <h2>Security by design</h2>
+    <p>Because Print Rescue stores no personal data on external servers, the attack surface for data breaches is minimal. All on-device data is protected by iOS's built-in sandboxing and device encryption (protected by your passcode / Face ID / Touch ID).</p>
+  </section>
+
+  <!-- Changes -->
+  <section class="section" id="changes">
+    <div class="section-num">09 — Policy Changes</div>
+    <h2>How we notify you of updates</h2>
+    <p>If we materially update this Privacy Policy, we will revise the "Last Updated" date at the top of this page and, where appropriate, provide notice through an App update description in the App Store. Continued use of the App after changes constitutes acceptance of the revised Policy.</p>
+    <p>We encourage you to review this page periodically.</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="section-num">10 — Contact</div>
+    <h2>Questions? We'd love to hear from you.</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please reach out:</p>
+    <div class="callout">
+      <p><strong>Email:</strong> <a href="mailto:frankali@126.com">frankali@126.com</a><br />
+      We aim to respond within 5 business days.</p>
+    </div>
+    <p>You may also submit feedback through the App Store review system or the in-app support link.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-nav">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:frankali@126.com">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 Print Rescue. Made with care for inkjet printer users worldwide.</p>
+  </div>
+</footer>
+
+</body>
+</html>

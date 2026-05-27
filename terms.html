@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — Print Rescue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f0e0c;
+      --ink-soft: #3a3833;
+      --ink-light: #7a7772;
+      --paper: #faf9f7;
+      --paper-warm: #f3f1ed;
+      --rule: #e2ddd8;
+      --accent: #1a56db;
+      --accent-warm: #c84b0f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 56px 40px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 79px,
+        rgba(255,255,255,0.025) 79px,
+        rgba(255,255,255,0.025) 80px
+      );
+      pointer-events: none;
+    }
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+    .app-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: rgba(255,255,255,0.4);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--paper);
+      margin-bottom: 16px;
+    }
+    h1 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+    }
+    .meta {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+
+    nav {
+      background: var(--paper-warm);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul {
+      max-width: 720px;
+      margin: 0 auto;
+      list-style: none;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    nav ul::-webkit-scrollbar { display: none; }
+    nav a {
+      display: block;
+      padding: 14px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: var(--ink); border-color: var(--ink); }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 40px 80px;
+    }
+
+    .section {
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 56px;
+    }
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    p {
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 16px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+    li { margin-bottom: 8px; }
+    li:last-child { margin-bottom: 0; }
+
+    .callout {
+      background: var(--paper-warm);
+      border-left: 3px solid var(--ink);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+    }
+    .callout p { margin: 0; font-size: 15px; }
+
+    .warning-box {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .warning-box strong { color: var(--accent-warm); font-weight: 500; }
+    .warning-box p { margin: 0; font-size: 15px; }
+
+    .highlight-box {
+      background: #f0f4ff;
+      border: 1px solid #c7d7f9;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .highlight-box strong { color: var(--accent); font-weight: 500; }
+    .highlight-box p { margin: 0; font-size: 15px; }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .plan-card {
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .plan-name {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+    }
+    .plan-desc {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    strong { font-weight: 500; }
+
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      background: var(--paper-warm);
+      border-top: 1px solid var(--rule);
+      padding: 40px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 20px;
+    }
+    .footer-nav a {
+      font-size: 13px;
+      color: var(--ink-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-nav a:hover { color: var(--ink); }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--ink-light);
+      font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 40px 24px 36px; }
+      main { padding: 48px 24px 64px; }
+      nav { padding: 0 24px; }
+      footer { padding: 32px 24px; }
+      .plan-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="app-badge">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Print Rescue · iOS App
+    </div>
+    <h1>Terms <em>of Use</em></h1>
+    <p class="meta">Effective Date: June 1, 2025 &nbsp;·&nbsp; Last Updated: June 1, 2025</p>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#agreement">Agreement</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#subscriptions">Subscriptions</a></li>
+    <li><a href="#disclaimer">Disclaimer</a></li>
+    <li><a href="#liability">Liability</a></li>
+    <li><a href="#ip">IP</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- Agreement -->
+  <section class="section" id="agreement">
+    <div class="section-num">01 — Agreement</div>
+    <h2>By using Print Rescue, you accept these terms</h2>
+    <div class="callout">
+      <p>Please read these Terms of Use carefully before using the Print Rescue application. By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not use the App.</p>
+    </div>
+    <p>These Terms of Use ("Terms") constitute a legally binding agreement between you ("User", "you") and the developer of Print Rescue ("Developer", "we", "us") governing your use of the Print Rescue iOS application ("App").</p>
+    <p>Print Rescue is distributed through the Apple App Store and is subject to Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Standard End User License Agreement</a> (EULA) in addition to these Terms.</p>
+  </section>
+
+  <!-- License -->
+  <section class="section" id="license">
+    <div class="section-num">02 — License</div>
+    <h2>What you are permitted to do</h2>
+    <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to:</p>
+    <ul>
+      <li>Download and install the App on Apple devices you own or control.</li>
+      <li>Use the App for your personal, non-commercial printing purposes.</li>
+      <li>Access features corresponding to your current subscription tier.</li>
+    </ul>
+    <p>You may <strong>not</strong>:</p>
+    <ul>
+      <li>Copy, modify, reverse-engineer, decompile, or disassemble the App or any portion of it.</li>
+      <li>Redistribute, sublicense, sell, rent, or lease the App.</li>
+      <li>Use the App for any unlawful purpose or in violation of Apple's App Store guidelines.</li>
+      <li>Attempt to extract or replicate proprietary algorithms, including the nozzle compensation and pixel-routing logic.</li>
+      <li>Use the App to process documents containing illegal, infringing, or harmful content.</li>
+    </ul>
+  </section>
+
+  <!-- Subscriptions -->
+  <section class="section" id="subscriptions">
+    <div class="section-num">03 — In-App Purchases &amp; Subscriptions</div>
+    <h2>Subscription plans and billing</h2>
+    <p>Print Rescue offers a free tier with limited features and optional premium access through the following plans:</p>
+
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="plan-name">Monthly</div>
+        <div class="plan-desc">Billed monthly, cancel any time</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Annual</div>
+        <div class="plan-desc">Billed yearly, best value</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Lifetime</div>
+        <div class="plan-desc">One-time purchase, no renewal</div>
+      </div>
+    </div>
+
+    <p>All purchases are processed by Apple through StoreKit 2. Current pricing is displayed within the App and is subject to change.</p>
+
+    <h2 style="font-size:20px; margin-top:32px; margin-bottom:12px;">Auto-renewal</h2>
+    <p>Monthly and annual subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. Your Apple ID account will be charged for renewal within 24 hours prior to the end of the current period.</p>
+
+    <div class="highlight-box">
+      <p><strong>To cancel:</strong> Go to <em>Settings → [Your Name] → Subscriptions</em> on your device. Cancellation takes effect at the end of the current billing period; you retain access until then.</p>
+    </div>
+
+    <h2 style="font-size:20px; margin-top:32px; margin-bottom:12px;">Refund Policy</h2>
+    <p>All refund requests are handled directly by Apple in accordance with their refund policy. We do not process refunds independently. To request a refund, visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p>
+
+    <h2 style="font-size:20px; margin-top:32px; margin-bottom:12px;">Free Trial</h2>
+    <p>If a free trial is offered, it will convert to a paid subscription at the end of the trial period unless you cancel before the trial ends. Trial availability and duration are shown at the time of sign-up within the App.</p>
+  </section>
+
+  <!-- Printer Disclaimer -->
+  <section class="section" id="disclaimer">
+    <div class="section-num">04 — Printer Disclaimer</div>
+    <h2>Results vary — and that's expected</h2>
+    <p>Print Rescue's compensation printing technology is designed to work with AirPrint-compatible inkjet printers. However, print quality improvement is not guaranteed and depends on several factors beyond our control:</p>
+    <ul>
+      <li>The severity, pattern, and number of clogged nozzles in your printer.</li>
+      <li>The specific printer model, firmware version, and driver behavior.</li>
+      <li>Paper type, ink type, and environmental conditions.</li>
+      <li>Accuracy of calibration performed by the user.</li>
+    </ul>
+    <div class="warning-box">
+      <p><strong>Important:</strong> Print Rescue performs standard AirPrint print jobs via iOS. It does not physically clean, repair, or alter your printer hardware in any way. The App does not assume responsibility for any hardware malfunction, ink consumption, or paper waste that occurs during normal use.</p>
+    </div>
+    <p>We recommend completing a calibration session before your first compensation print to maximize accuracy. Results shown in promotional materials reflect testing on a specific Epson L455 device with a specific nozzle fault pattern; your results may differ.</p>
+  </section>
+
+  <!-- Limitation of Liability -->
+  <section class="section" id="liability">
+    <div class="section-num">05 — Limitation of Liability</div>
+    <h2>What we are and are not responsible for</h2>
+    <p>To the maximum extent permitted by applicable law:</p>
+    <ul>
+      <li>The App is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</li>
+      <li>We do not warrant that the App will meet your specific requirements, that it will be uninterrupted, error-free, or that defects will be corrected.</li>
+      <li>We shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of documents, print materials, or ink, arising from your use of the App.</li>
+      <li>Our total aggregate liability to you for any claim arising from these Terms or the App shall not exceed the amount you paid for the App in the twelve months preceding the claim.</li>
+    </ul>
+    <p>Some jurisdictions do not allow the exclusion or limitation of certain warranties or liabilities, so the above may not apply to you in full. You may have additional rights under local law.</p>
+  </section>
+
+  <!-- Intellectual Property -->
+  <section class="section" id="ip">
+    <div class="section-num">06 — Intellectual Property</div>
+    <h2>Everything in the App belongs to us</h2>
+    <p>All content, features, and functionality of Print Rescue — including but not limited to the nozzle detection algorithms, white-band calibration engine, pixel-routing compensation logic, user interface design, and all associated software code — are and remain the exclusive intellectual property of the Developer.</p>
+    <p>Nothing in these Terms grants you any ownership right, title, or interest in the App or its underlying technology.</p>
+    <p>Product names referenced in the App (such as "Epson") are trademarks of their respective owners. Print Rescue is not affiliated with, endorsed by, or sponsored by any printer manufacturer.</p>
+  </section>
+
+  <!-- User Conduct -->
+  <section class="section" id="conduct">
+    <div class="section-num">07 — User Conduct</div>
+    <h2>Acceptable use</h2>
+    <p>You agree to use Print Rescue solely for lawful printing purposes. You are solely responsible for the content of the documents you print using the App. We are not responsible for and do not endorse any content you choose to print.</p>
+    <p>You agree not to use the App in any manner that could damage, disable, or impair the App or interfere with any other party's use.</p>
+  </section>
+
+  <!-- Governing Law -->
+  <section class="section" id="governing">
+    <div class="section-num">08 — Governing Law</div>
+    <h2>Applicable law and dispute resolution</h2>
+    <p>These Terms shall be governed by and construed in accordance with applicable law. Any disputes arising out of or in connection with these Terms that cannot be resolved informally shall be submitted to binding arbitration or resolved through the courts of competent jurisdiction.</p>
+    <p>We encourage you to contact us first at <a href="mailto:frankali@126.com">frankali@126.com</a> to attempt to resolve any dispute informally before pursuing formal proceedings.</p>
+  </section>
+
+  <!-- Changes to Terms -->
+  <section class="section" id="changes">
+    <div class="section-num">09 — Changes to These Terms</div>
+    <h2>We may update these Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. When we make material changes, we will update the "Last Updated" date and, where appropriate, notify you through an App Store update description or an in-app notice.</p>
+    <p>Your continued use of the App after changes become effective constitutes your acceptance of the revised Terms. If you do not agree to the new Terms, you must stop using the App.</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="section-num">10 — Contact</div>
+    <h2>Get in touch</h2>
+    <p>For any questions about these Terms, subscription issues, or technical support:</p>
+    <div class="callout">
+      <p><strong>Email:</strong> <a href="mailto:frankali@126.com">frankali@126.com</a><br />
+      We aim to respond within 5 business days.</p>
+    </div>
+    <p>For refund requests, please visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> to contact Apple directly.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-nav">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:frankali@126.com">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 Print Rescue. Made with care for inkjet printer users worldwide.</p>
+  </div>
+</footer>
+
+</body>
+</html>
