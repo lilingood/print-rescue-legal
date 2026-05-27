@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Print Rescue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f0e0c;
+      --ink-soft: #3a3833;
+      --ink-light: #7a7772;
+      --paper: #faf9f7;
+      --paper-warm: #f3f1ed;
+      --rule: #e2ddd8;
+      --accent: #1a56db;
+      --accent-warm: #c84b0f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 56px 40px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,0.03) 39px,
+        rgba(255,255,255,0.03) 40px
+      );
+      pointer-events: none;
+    }
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+    .app-badge svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: rgba(255,255,255,0.4);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--paper);
+      margin-bottom: 16px;
+    }
+    h1 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+    }
+    .meta {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      background: var(--paper-warm);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul {
+      max-width: 720px;
+      margin: 0 auto;
+      list-style: none;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    nav ul::-webkit-scrollbar { display: none; }
+    nav a {
+      display: block;
+      padding: 14px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* ── Main ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 40px 80px;
+    }
+
+    .section {
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 56px;
+    }
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    p {
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 16px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+    li { margin-bottom: 8px; }
+    li:last-child { margin-bottom: 0; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .callout {
+      background: var(--paper-warm);
+      border-left: 3px solid var(--ink);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+    }
+    .callout p { margin: 0; font-size: 15px; }
+
+    .highlight-box {
+      background: #f0f4ff;
+      border: 1px solid #c7d7f9;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .highlight-box strong { color: var(--accent); font-weight: 500; }
+
+    /* ── Steps ── */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0;
+      margin: 24px 0;
+    }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .steps li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .steps li p { margin: 0; }
+
+    /* ── FAQ accordion ── */
+    .faq-item {
+      border-bottom: 1px solid var(--rule);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--rule); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 18px 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-question:hover { color: var(--accent); }
+    .faq-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      position: relative;
+      transition: transform .25s;
+    }
+    .faq-icon::before,
+    .faq-icon::after {
+      content: '';
+      position: absolute;
+      background: currentColor;
+      border-radius: 1px;
+    }
+    .faq-icon::before { width: 12px; height: 2px; top: 8px; left: 3px; }
+    .faq-icon::after  { width: 2px; height: 12px; top: 3px; left: 8px; transition: transform .25s; }
+    .faq-item.open .faq-icon::after { transform: rotate(90deg); }
+
+    .faq-answer {
+      display: none;
+      padding-bottom: 20px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ── Contact cards ── */
+    .contact-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--paper-warm);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+    .contact-card:last-child { margin-bottom: 0; }
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--ink);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--paper);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .contact-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 4px;
+    }
+    .contact-value { font-size: 15px; font-weight: 400; color: var(--ink-soft); }
+    .contact-value a { color: var(--accent); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--paper-warm);
+      border-top: 1px solid var(--rule);
+      padding: 40px;
+      text-align: center;
+    }
+    .footer-inner { max-width: 720px; margin: 0 auto; }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-nav a {
+      font-size: 13px;
+      color: var(--ink-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-nav a:hover { color: var(--ink); }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--ink-light);
+      font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 40px 24px 36px; }
+      main { padding: 48px 24px 64px; }
+      nav { padding: 0 24px; }
+      footer { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="app-badge">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/>
+      </svg>
+      Print Rescue · iOS App
+    </div>
+    <h1>Support <em>&amp; Help</em></h1>
+    <p class="meta">Everything you need to get your printer printing again.</p>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+    <li><a href="#subscriptions">Subscriptions</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- Getting Started -->
+  <section class="section" id="getting-started">
+    <div class="section-num">01 — Getting Started</div>
+    <h2>Your printer isn't dead — let's prove it</h2>
+    <div class="callout">
+      <p><strong>What Print Rescue does:</strong> When an inkjet printer develops clogged nozzles, it leaves blank horizontal streaks across the page. Print Rescue uses a smart two-pass printing method to fill those streaks in — no hardware repair, no replacement parts.</p>
+    </div>
+    <p>Before your first recovery print, complete a one-time calibration so the app learns exactly where the streaks appear on <em>your</em> specific printer.</p>
+    <ol class="steps">
+      <li><p><strong>Print a diagnostic test page.</strong> Tap <em>Diagnostic</em> in the app to send a test pattern to your printer. This reveals which nozzle groups are blocked and where the blank zones fall on the page.</p></li>
+      <li><p><strong>Calibrate.</strong> Either photograph the test page with your camera for automatic detection, or tap the white-band positions manually on screen. The app saves your printer's profile for all future jobs.</p></li>
+      <li><p><strong>Start a recovery print.</strong> Go to <em>Home</em>, import the document you want to print (PDF, image, or Word file), and tap <em>Print</em>. The app handles the rest — automatically.</p></li>
+    </ol>
+    <p>Calibration only needs to be done once per printer, or whenever the clog pattern changes significantly.</p>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section" id="how-it-works">
+    <div class="section-num">02 — How It Works</div>
+    <h2>Smart Recovery Printing, explained simply</h2>
+    <p>Print Rescue uses a two-pass approach to restore full-coverage output from a partially clogged printer:</p>
+    <ul>
+      <li><strong>Pass 1 — Standard Print.</strong> Your document is printed normally. Blocked nozzles leave white streaks in predictable positions across the page.</li>
+      <li><strong>Pass 2 — Recovery Print.</strong> You feed the same sheet back into the printer. The app sends a precisely offset version of your document, calculated so that the healthy nozzles now cover exactly the zones that were missed in Pass 1.</li>
+    </ul>
+    <p>The result: a complete, streak-free page — without touching the print head, without expensive cleaning cycles, and without any hardware repair.</p>
+    <div class="highlight-box">
+      <p><strong>Works with any AirPrint-compatible inkjet printer.</strong> Tested extensively with Epson EcoTank and Expression series. Results vary by the severity and pattern of blockage.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-num">03 — Frequently Asked Questions</div>
+    <h2>Common questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Will this work with my printer?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p>Print Rescue works with any AirPrint-compatible inkjet printer connected to your Wi-Fi network. It has been tested with Epson EcoTank and Expression series models. Laser printers and thermal printers are not supported, as they use a completely different printing mechanism.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Do I need to do calibration every time?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p>No. Calibration is a one-time setup per printer. The app saves your printer's profile automatically. You only need to re-calibrate if the blockage pattern noticeably changes — for example, after a cleaning cycle opens or closes additional nozzles.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Why does the recovery print require feeding the paper back in?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p>The two-pass method requires that the second print lands on the same sheet as the first. The app precisely calculates the offset needed so the second pass fills in the gaps left by the first — the two passes together produce a complete, streak-free result. Simply place the printed sheet back in the paper tray when prompted.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        What file types can I print?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p>Print Rescue supports PDF, JPEG, PNG, and Microsoft Word (.docx) files. You can import documents from Files, Photos, or any app that supports the iOS share sheet.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Will the recovery print use a lot of extra ink?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p>The second pass is engineered to deposit ink only where needed, keeping additional ink consumption to a practical minimum. The ink used is far less than a nozzle cleaning cycle, which is the common alternative — and far cheaper than a professional repair or new print head.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Does the app fix the clog permanently?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p>Print Rescue compensates for clogged nozzles through software — it does not physically unclog or repair the print head. Your printer's hardware remains unchanged. For mild clogs, standard maintenance cycles (available in your printer's utility software) may also help; Print Rescue is designed for cases where those cycles are insufficient or unavailable.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        Is my document data sent anywhere?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p>No. All document processing happens entirely on your device. Your files are never uploaded to any server. Print jobs are sent directly from your iPhone to your printer over your local Wi-Fi network. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        How many printers can I calibrate?
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-answer">
+        <p>You can save multiple calibration profiles, one for each printer you use. Profiles are stored locally on your device and are not shared between devices.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Troubleshooting -->
+  <section class="section" id="troubleshooting">
+    <div class="section-num">04 — Troubleshooting</div>
+    <h2>Something not working?</h2>
+
+    <p><strong>The app can't find my printer.</strong><br />
+    Make sure your iPhone and printer are on the same Wi-Fi network. AirPrint requires both devices to be on the same local network. If your printer was recently added, try toggling Wi-Fi off and on again on your iPhone.</p>
+
+    <p><strong>The recovery print still shows streaks.</strong><br />
+    Re-run the calibration to make sure the white-band positions are mapped correctly for your current blockage pattern. Small shifts in the clog can affect alignment. For very severe or irregularly distributed blockages, multiple recovery attempts may be needed.</p>
+
+    <p><strong>The second pass is misaligned — content shifted up or down.</strong><br />
+    This usually means the paper was not fed back in the same orientation, or the printer shifted the starting point. Ensure the sheet is placed in the tray in the same direction as during the first pass. Re-calibrate if the issue persists.</p>
+
+    <p><strong>The camera calibration failed to detect bands.</strong><br />
+    Photograph the test page on a flat, well-lit surface without shadows or glare. Ensure the entire page is visible within the camera frame. If detection remains unreliable, use the manual tap-calibration mode instead — it requires no camera access.</p>
+
+    <p><strong>My subscription didn't restore after reinstalling.</strong><br />
+    Tap <em>Restore Purchases</em> inside the app (Settings → Subscription). Make sure you are signed in to the same Apple ID used for the original purchase.</p>
+
+    <div class="callout">
+      <p>If your issue isn't listed here, please contact us directly — we're happy to help troubleshoot your specific printer model and situation.</p>
+    </div>
+  </section>
+
+  <!-- Subscriptions -->
+  <section class="section" id="subscriptions">
+    <div class="section-num">05 — Subscriptions &amp; Purchases</div>
+    <h2>Plans, billing, and cancellation</h2>
+    <p>Print Rescue offers a free tier for basic use, and optional premium plans — monthly, annual, and lifetime — that unlock unlimited recovery printing and advanced calibration modes.</p>
+    <ul>
+      <li>All purchases are processed by Apple via the App Store. We never see your payment details.</li>
+      <li>Subscriptions renew automatically unless cancelled at least 24 hours before the renewal date.</li>
+      <li>To cancel or manage your subscription, go to <strong>Settings → [Your Name] → Subscriptions</strong> on your iPhone.</li>
+      <li>To restore a purchase after reinstalling, tap <strong>Restore Purchases</strong> inside the app.</li>
+      <li>Refund requests are handled by Apple. Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> to submit a refund request.</li>
+    </ul>
+    <div class="highlight-box">
+      <p><strong>Lifetime purchase</strong> is a one-time payment for permanent access to all current premium features on the purchasing device and any device signed in to the same Apple ID.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="section-num">06 — Contact Us</div>
+    <h2>We'd love to hear from you</h2>
+    <p>Whether you have a question, a bug report, a feature request, or just want to share a before-and-after story — reach out. We read every message.</p>
+
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Email Support</div>
+        <div class="contact-value"><a href="mailto:frankali@126.com">frankali@126.com</a><br />
+        <span style="font-size:13px; color: var(--ink-light);">We aim to respond within 2 business days.</span></div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">App Store Feedback</div>
+        <div class="contact-value">Leave a review on the App Store — your feedback directly shapes future updates.</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 24px;">When writing to us about a technical issue, it helps to include: your iPhone model, iOS version, printer brand and model, and a brief description of what happened. This lets us respond with a precise solution rather than general advice.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-nav">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:frankali@126.com">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 Print Rescue. Made with care for inkjet printer users worldwide.</p>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      // Open clicked (unless it was already open)
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
